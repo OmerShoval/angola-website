@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ocean Athlete — Preparation Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --primary:        #1c1c1e;
+      --on-primary:     #ffffff;
+      --brand-yellow:   #ffd02f;
+      --yellow-light:   #fff4c4;
+      --yellow-dark:    #746019;
+      --brand-blue:     #4262ff;
+      --coral-light:    #ffc6c6;
+      --coral-dark:     #600000;
+      --teal-light:     #c3faf5;
+      --moss-dark:      #187574;
+      --rose-light:     #fde0f0;
+      --orange-light:   #ffe6cd;
+      --canvas:         #ffffff;
+      --surface:        #f7f8fa;
+      --surface-yellow: #fff8e0;
+      --hairline:       #e0e2e8;
+      --hairline-soft:  #eef0f3;
+      --hairline-strong:#c7cad5;
+      --ink:            #1c1c1e;
+      --ink-deep:       #050038;
+      --charcoal:       #2c2c34;
+      --slate:          #555a6a;
+      --steel:          #6b6f7e;
+      --stone:          #8e91a0;
+      --muted:          #a5a8b5;
+      --on-dark:        #ffffff;
+      --on-dark-muted:  #a5a8b5;
+      --footer-bg:      #1c1c1e;
+      --success:        #00b473;
+
+      --font: 'Plus Jakarta Sans', 'Noto Sans', -apple-system, sans-serif;
+
+      --r-xs:   4px;
+      --r-sm:   6px;
+      --r-md:   8px;
+      --r-lg:   12px;
+      --r-xl:   16px;
+      --r-xxl:  20px;
+      --r-xxxl: 28px;
+      --r-feat: 32px;
+      --r-full: 9999px;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--canvas);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Promo Banner ───────────────────────────────────── */
+    .promo-banner {
+      background: var(--primary);
+      color: var(--on-primary);
+      text-align: center;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .promo-banner span {
+      display: inline-block;
+      background: var(--brand-yellow);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: var(--r-full);
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    /* ─── Nav ────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--canvas);
+      border-bottom: 1px solid var(--hairline-soft);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 28px;
+      height: 28px;
+      background: var(--brand-yellow);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pill-tab {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: var(--r-full);
+      border: 1px solid var(--hairline);
+      background: var(--canvas);
+      color: var(--steel);
+      text-decoration: none;
+    }
+    .pill-tab-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: var(--r-full);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--charcoal); }
+    .btn-on-dark {
+      background: var(--on-dark);
+      color: var(--primary);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: var(--r-full);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-yellow {
+      background: var(--brand-yellow);
+      color: var(--primary);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 28px;
+      border-radius: var(--r-full);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-left: 12px;
+    }
+
+    /* ─── Layout ─────────────────────────────────────────── */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    section { padding: 96px 0; }
+    .divider { border: none; border-top: 1px solid var(--hairline-soft); margin: 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 16px;
+    }
+    .section-heading {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 500;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--slate);
+      line-height: 1.5;
+      max-width: 520px;
+    }
+
+    /* ─── Hero ───────────────────────────────────────────── */
+    .hero {
+      padding: 96px 32px 80px;
+      text-align: center;
+      background: var(--canvas);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--teal-light);
+      color: var(--moss-dark);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: var(--r-full);
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: var(--ink);
+      max-width: 820px;
+      margin: 0 auto 24px;
+    }
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--slate);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-goals {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .hero-goal-card {
+      background: var(--surface);
+      border-radius: var(--r-xxxl);
+      padding: 28px 24px;
+      text-align: left;
+      border: 1px solid var(--hairline-soft);
+    }
+    .hero-goal-icon {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    .hero-goal-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ─── Philosophy ─────────────────────────────────────── */
+    .philosophy-wrap {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-radius: var(--r-feat);
+      padding: 80px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .philosophy-wrap .section-label { color: var(--on-dark-muted); }
+    .philosophy-wrap .section-heading { color: var(--on-primary); }
+    .philosophy-pillars {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0 32px;
+      flex-wrap: wrap;
+    }
+    .pillar-pill {
+      background: var(--brand-yellow);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: var(--r-full);
+    }
+    .philosophy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .philosophy-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--on-dark-muted);
+    }
+    .philosophy-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-yellow);
+      flex-shrink: 0;
+    }
+    .philosophy-right {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-xxxl);
+      padding: 36px;
+    }
+    .philosophy-right-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--on-dark-muted);
+      margin-bottom: 20px;
+    }
+    .day-focus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .day-focus-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--r-xl);
+      font-size: 15px;
+    }
+    .day-focus-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand-yellow);
+      flex-shrink: 0;
+    }
+    .pack-lighter {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      color: var(--on-dark-muted);
+      font-style: italic;
+    }
+
+    /* ─── Equipment Grid ─────────────────────────────────── */
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .equip-card {
+      padding: 32px;
+      border-radius: var(--r-xxxl);
+      border: 1px solid var(--hairline-soft);
+      background: var(--canvas);
+    }
+    .equip-card.yellow  { background: var(--brand-yellow); }
+    .equip-card.teal    { background: var(--teal-light); }
+    .equip-card.coral   { background: var(--coral-light); }
+    .equip-card.rose    { background: var(--rose-light); }
+    .equip-card.orange  { background: var(--orange-light); }
+    .equip-card.surface { background: var(--surface); }
+    .equip-card-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .equip-card-title {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .equip-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .equip-list li {
+      font-size: 14px;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .equip-list li::before {
+      content: "—";
+      opacity: 0.4;
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+    .equip-warning {
+      margin-top: 16px;
+      padding: 10px 14px;
+      background: rgba(0,0,0,0.07);
+      border-radius: var(--r-lg);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* ─── Forgotten Items ────────────────────────────────── */
+    .forgotten-wrap {
+      background: var(--surface);
+      border-radius: var(--r-feat);
+      padding: 64px;
+    }
+    .forgotten-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .forgotten-item {
+      background: var(--canvas);
+      border: 1px solid var(--hairline-soft);
+      border-radius: var(--r-xl);
+      padding: 20px 16px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .forgotten-item-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    /* ─── Two-col layout ─────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .two-col-card {
+      background: var(--surface);
+      border-radius: var(--r-xxxl);
+      padding: 40px;
+    }
+    .two-col-card h3 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .two-col-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .two-col-list li {
+      font-size: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--slate);
+    }
+    .two-col-list li::before {
+      content: "–";
+      color: var(--stone);
+      flex-shrink: 0;
+    }
+    .tip-badge {
+      display: inline-block;
+      background: var(--coral-light);
+      color: var(--coral-dark);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--r-full);
+      margin-top: 16px;
+    }
+
+    /* ─── Mindset ────────────────────────────────────────── */
+    .mindset-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .mindset-col {
+      padding: 36px;
+      border-radius: var(--r-xxxl);
+    }
+    .mindset-col.bad  { background: var(--coral-light); }
+    .mindset-col.good { background: var(--teal-light); }
+    .mindset-col h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .mindset-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mindset-list li {
+      font-size: 15px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .mindset-list li::before {
+      content: "×";
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .mindset-col.good .mindset-list li::before { content: "✓"; }
+
+    /* ─── First 24 Hours ─────────────────────────────────── */
+    .first24-wrap {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-radius: var(--r-feat);
+      padding: 80px 64px;
+      text-align: center;
+    }
+    .first24-wrap .section-label { color: var(--on-dark-muted); }
+    .first24-wrap .section-heading { color: var(--on-primary); max-width: 600px; margin: 0 auto 16px; }
+    .first24-wrap .section-sub { color: var(--on-dark-muted); margin: 0 auto 48px; }
+    .first24-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .first24-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-xl);
+      padding: 24px 20px;
+      font-size: 15px;
+      text-align: left;
+    }
+    .first24-item-icon { font-size: 22px; margin-bottom: 10px; }
+    .first24-note {
+      background: rgba(255,208,47,0.12);
+      border: 1px solid rgba(255,208,47,0.25);
+      border-radius: var(--r-xl);
+      padding: 20px 32px;
+      font-size: 16px;
+      color: var(--brand-yellow);
+      font-style: italic;
+    }
+
+    /* ─── CTA Banner ─────────────────────────────────────── */
+    .cta-banner {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-radius: var(--r-feat);
+      padding: 80px 64px;
+      text-align: center;
+    }
+    .cta-banner h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 500;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .cta-banner p {
+      font-size: 18px;
+      color: var(--on-dark-muted);
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────── */
+    footer {
+      background: var(--footer-bg);
+      color: var(--on-dark);
+      padding: 64px 32px 40px;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--on-dark-muted);
+      line-height: 1.6;
+      margin-top: 12px;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--on-dark);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { padding: 4px 0; }
+    .footer-col ul li a {
+      font-size: 14px;
+      color: var(--on-dark-muted);
+      text-decoration: none;
+    }
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 32px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-bottom p { font-size: 12px; color: var(--on-dark-muted); }
+
+    /* ─── Responsive ─────────────────────────────────────── */
+    @media (max-width: 1023px) {
+      .hero-goals      { grid-template-columns: 1fr 1fr; }
+      .equipment-grid  { grid-template-columns: 1fr 1fr; }
+      .philosophy-wrap { grid-template-columns: 1fr; gap: 40px; padding: 48px 32px; }
+      .two-col         { grid-template-columns: 1fr; }
+      .mindset-wrap    { grid-template-columns: 1fr; }
+      .first24-grid    { grid-template-columns: 1fr 1fr; }
+      .forgotten-grid  { grid-template-columns: repeat(3, 1fr); }
+      .footer-inner    { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 767px) {
+      .container       { padding: 0 20px; }
+      .hero            { padding: 64px 20px 48px; }
+      nav              { padding: 0 20px; }
+      .hero-goals      { grid-template-columns: 1fr; }
+      .equipment-grid  { grid-template-columns: 1fr; }
+      .first24-grid    { grid-template-columns: 1fr; }
+      .forgotten-grid  { grid-template-columns: 1fr 1fr; }
+      .cta-banner      { padding: 48px 24px; }
+      .forgotten-wrap  { padding: 40px 24px; }
+      .footer-inner    { grid-template-columns: 1fr; }
+      .footer-bottom   { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Promo Banner -->
+  <div class="promo-banner">
+    Your Angola retreat is coming — this guide will help you arrive ready
+    <span>Preparation</span>
+  </div>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">OA</div>
+      Ocean Athlete
+    </a>
+    <div class="nav-tabs">
+      <a href="preparation.html" class="pill-tab pill-tab-active">Preparation</a>
+      <a href="index.html" class="pill-tab">The Plan</a>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html" class="btn-primary">View the plan</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge">Pre-Retreat Guide</div>
+    <h1>Arrive relaxed,<br>prepared, and ready</h1>
+    <p class="hero-sub">Everything you need to know before you land in Angola. Pack right, travel smart, and leave the stress at home.</p>
+    <div class="hero-actions">
+      <a href="#equipment" class="btn-primary">What to pack</a>
+      <a href="#mindset" style="background:transparent;color:var(--ink);font-family:var(--font);font-size:14px;font-weight:500;padding:10px 22px;border-radius:var(--r-full);border:1px solid var(--hairline-strong);text-decoration:none;">Mindset guide</a>
+    </div>
+    <div class="hero-goals">
+      <div class="hero-goal-card">
+        <div class="hero-goal-icon">✓</div>
+        <div class="hero-goal-title">Don't forget important things</div>
+      </div>
+      <div class="hero-goal-card">
+        <div class="hero-goal-icon">✓</div>
+        <div class="hero-goal-title">Travel lighter and smarter</div>
+      </div>
+      <div class="hero-goal-card">
+        <div class="hero-goal-icon">✓</div>
+        <div class="hero-goal-title">Reduce unnecessary stress</div>
+      </div>
+      <div class="hero-goal-card" style="background:var(--brand-yellow);">
+        <div class="hero-goal-icon">✓</div>
+        <div class="hero-goal-title">Be ready for progression, recovery, and adventure</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Philosophy -->
+  <section>
+    <div class="container">
+      <div class="philosophy-wrap">
+        <div>
+          <div class="section-label">The Ocean Athlete Philosophy</div>
+          <h2 class="section-heading">Minimalism.<br>Accuracy.<br>Preparedness.</h2>
+          <div class="philosophy-pillars">
+            <div class="pillar-pill">Minimalism</div>
+            <div class="pillar-pill">Accuracy</div>
+            <div class="pillar-pill">Preparedness</div>
+          </div>
+          <p style="color:var(--on-dark-muted);font-size:16px;margin-bottom:20px;">You do not need to bring everything. You need to bring the <strong style="color:var(--on-dark);">right</strong> things.</p>
+          <p style="color:var(--on-dark-muted);font-size:16px;">Most of your days will revolve around a handful of simple things.</p>
+        </div>
+        <div class="philosophy-right">
+          <div class="philosophy-right-label">Your days will revolve around</div>
+          <div class="day-focus-list">
+            <div class="day-focus-item"><div class="day-focus-dot"></div>Surfing</div>
+            <div class="day-focus-item"><div class="day-focus-dot"></div>Recovery</div>
+            <div class="day-focus-item"><div class="day-focus-dot"></div>Food</div>
+            <div class="day-focus-item"><div class="day-focus-dot"></div>Connection</div>
+            <div class="day-focus-item"><div class="day-focus-dot"></div>Video analysis</div>
+            <div class="day-focus-item"><div class="day-focus-dot"></div>Rest</div>
+          </div>
+          <div class="pack-lighter">"Pack lighter than you think."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Equipment -->
+  <section id="equipment">
+    <div class="container">
+      <div class="section-label">Surf Equipment</div>
+      <h2 class="section-heading">What to bring<br>in the water</h2>
+      <p class="section-sub">Focused and functional. Everything on this list has a purpose.</p>
+
+      <div class="equipment-grid">
+
+        <div class="equip-card yellow">
+          <div class="equip-card-icon">🏄</div>
+          <div class="equip-card-title">Recommended Boards</div>
+          <ul class="equip-list">
+            <li>2 surfboards total</li>
+            <li>One main board</li>
+            <li>One backup / alternative board</li>
+          </ul>
+          <div class="equip-warning">Common mistake: Boards too performance-focused or not versatile enough for conditions.</div>
+        </div>
+
+        <div class="equip-card teal">
+          <div class="equip-card-icon">🔧</div>
+          <div class="equip-card-title">Essential Surf Gear</div>
+          <ul class="equip-list">
+            <li>2 sets of backup fins</li>
+            <li>Wax</li>
+            <li>Leash + backup leash</li>
+            <li>Board bag</li>
+            <li>Earplugs (if needed)</li>
+            <li>Ding repair kit (recommended)</li>
+          </ul>
+        </div>
+
+        <div class="equip-card coral">
+          <div class="equip-card-icon">🧥</div>
+          <div class="equip-card-title">Wetsuits & Weather</div>
+          <ul class="equip-list">
+            <li>Spring suit</li>
+            <li>Full wetsuit / long suit</li>
+            <li>Light warm layer / hoodie</li>
+            <li>Hat or cap</li>
+          </ul>
+          <div class="equip-warning">Angola can feel warm during the day and chilly during mornings, evenings, and long sessions.</div>
+        </div>
+
+        <div class="equip-card rose">
+          <div class="equip-card-icon">👕</div>
+          <div class="equip-card-title">Clothing</div>
+          <ul class="equip-list">
+            <li>3–4 outfits total</li>
+            <li>Swimwear most of the day</li>
+            <li>Comfortable beach clothes</li>
+            <li>Laundry available (~2 day turnaround)</li>
+          </ul>
+          <div class="equip-warning">You will spend most of the retreat barefoot. Keep it simple.</div>
+        </div>
+
+        <div class="equip-card orange">
+          <div class="equip-card-icon">💻</div>
+          <div class="equip-card-title">Video & Technology</div>
+          <ul class="equip-list">
+            <li>SSD with USB-C / Type-C connection</li>
+            <li>Laptop (strongly recommended)</li>
+            <li>Phone chargers</li>
+            <li>Personal charging adapter</li>
+          </ul>
+          <div class="equip-warning">Many students regret not bringing a laptop or SSD. Video coaching is central to the experience.</div>
+        </div>
+
+        <div class="equip-card surface">
+          <div class="equip-card-icon">💊</div>
+          <div class="equip-card-title">Recovery & Performance</div>
+          <ul class="equip-list">
+            <li>Hydration bottle</li>
+            <li>Electrolytes</li>
+            <li>Magnesium</li>
+            <li>Sunscreen</li>
+            <li>Massage ball</li>
+          </ul>
+          <div class="equip-warning">Most students underestimate fatigue, recovery needs, and sun exposure.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Most Forgotten -->
+  <section>
+    <div class="container">
+      <div class="forgotten-wrap">
+        <div class="section-label">Most Forgotten Items</div>
+        <h2 class="section-heading">Check these twice</h2>
+        <p class="section-sub">The ten things most likely to be missing from your bag when you land.</p>
+        <div class="forgotten-grid">
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">💾</div>
+            SSD
+          </div>
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">💻</div>
+            Laptop
+          </div>
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">🧢</div>
+            Hat
+          </div>
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">🔌</div>
+            Chargers
+          </div>
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">🔋</div>
+            Adapter
+          </div>
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">⚡</div>
+            Electrolytes
+          </div>
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">🔩</div>
+            Backup fins
+          </div>
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">🧥</div>
+            Wetsuit variety
+          </div>
+          <div class="forgotten-item">
+            <div class="forgotten-item-icon">🧴</div>
+            Sunscreen
+          </div>
+          <div class="forgotten-item" style="background:var(--brand-yellow);">
+            <div class="forgotten-item-icon">💧</div>
+            Hydration bottle
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Cash & Flights -->
+  <section>
+    <div class="container">
+      <div class="section-label">Logistics</div>
+      <h2 class="section-heading">Cash, flights<br>& local essentials</h2>
+
+      <!-- Outlet info -->
+      <div style="display:flex;align-items:center;gap:40px;background:var(--surface);border-radius:var(--r-xxxl);padding:36px 40px;margin-top:48px;margin-bottom:16px;">
+        <img src="outlet.jpg" alt="Angola Type C electric outlet" style="width:140px;height:auto;border-radius:var(--r-xl);flex-shrink:0;border:1px solid var(--hairline-soft);" />
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--stone);margin-bottom:8px;">Electric Outlets</div>
+          <div style="font-size:22px;font-weight:500;margin-bottom:8px;">Type C — European plug</div>
+          <p style="font-size:15px;color:var(--slate);line-height:1.6;">Angola uses the <strong style="color:var(--ink);">Type C (European) socket</strong> — two round pins. Make sure your charging adapter supports this. Most universal travel adapters will work. Voltage is <strong style="color:var(--ink);">220V</strong>.</p>
+          <div style="display:inline-block;background:var(--coral-light);color:var(--coral-dark);font-size:13px;font-weight:600;padding:4px 12px;border-radius:var(--r-full);margin-top:12px;">Don't forget your adapter</div>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:0;">
+        <div class="two-col-card">
+          <h3>Cash & Local Spending</h3>
+          <ul class="two-col-list">
+            <li>Personal spending varies by individual</li>
+            <li>~$50 extra recommended for tips</li>
+            <li>~$20 extra for a local SIM card and internet access</li>
+          </ul>
+        </div>
+        <div class="two-col-card">
+          <h3>Flights & Board Travel</h3>
+          <ul class="two-col-list">
+            <li><strong style="color:var(--ink);">Longboards:</strong> Emirates or FlyDubai are usually best</li>
+            <li><strong style="color:var(--ink);">Other boards:</strong> Most airlines work fine for standard board bags</li>
+            <li>We will help guide you through surfboard logistics</li>
+          </ul>
+        </div>
+        <div class="two-col-card">
+          <h3>Coffee & Morning Essentials</h3>
+          <ul class="two-col-list">
+            <li>Personal water boiler / kettle</li>
+            <li>Your preferred coffee setup</li>
+          </ul>
+          <div class="tip-badge">Many students regret not bringing these</div>
+          <p style="font-size:14px;color:var(--slate);margin-top:12px;">Morning routines matter here. Simple comforts make a big difference when you're away for 10 days.</p>
+        </div>
+        <div class="two-col-card" style="background:var(--teal-light);">
+          <h3>Remember</h3>
+          <ul class="two-col-list" style="color:var(--moss-dark);">
+            <li>You will spend most days barefoot</li>
+            <li>Laundry is available, ~2 day turnaround</li>
+            <li>Overpacking creates stress, not comfort</li>
+            <li>The retreat provides everything else you need</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Mindset -->
+  <section id="mindset">
+    <div class="container">
+      <div class="section-label">Mindset & Preparation</div>
+      <h2 class="section-heading">The biggest thing that<br>hurts progression</h2>
+      <p class="section-sub" style="margin-bottom:48px;">What's between your ears matters as much as what's in your board bag.</p>
+
+      <div class="mindset-wrap">
+        <div class="mindset-col bad">
+          <h3>What slows you down</h3>
+          <ul class="mindset-list">
+            <li>Too many expectations</li>
+            <li>Overthinking</li>
+            <li>Trying to force results</li>
+            <li>Not being present</li>
+          </ul>
+        </div>
+        <div class="mindset-col good">
+          <h3>What accelerates you</h3>
+          <ul class="mindset-list">
+            <li>Relaxing into the process</li>
+            <li>Staying open-minded</li>
+            <li>Trusting the rhythm of the retreat</li>
+            <li>Allowing time to settle in</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background:var(--surface);border-radius:var(--r-xxxl);padding:40px;margin-top:16px;text-align:center;">
+        <p style="font-size:22px;font-weight:500;letter-spacing:-0.5px;color:var(--ink);max-width:600px;margin:0 auto;">
+          "Progress happens faster when you stop trying to control every outcome."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- First 24 Hours -->
+  <section>
+    <div class="container">
+      <div class="first24-wrap">
+        <div class="section-label">First 24 Hours</div>
+        <h2 class="section-heading">The first day is still travel.</h2>
+        <p class="section-sub">There is no rush. Our only goal for the first 24 hours is to arrive well.</p>
+        <div class="first24-grid">
+          <div class="first24-item">
+            <div class="first24-item-icon">✈️</div>
+            Arrive safely
+          </div>
+          <div class="first24-item">
+            <div class="first24-item-icon">🍽️</div>
+            Eat well
+          </div>
+          <div class="first24-item">
+            <div class="first24-item-icon">💧</div>
+            Hydrate
+          </div>
+          <div class="first24-item">
+            <div class="first24-item-icon">🏠</div>
+            Settle into the compound
+          </div>
+          <div class="first24-item">
+            <div class="first24-item-icon">😌</div>
+            Relax
+          </div>
+          <div class="first24-item">
+            <div class="first24-item-icon">😴</div>
+            Sleep properly
+          </div>
+        </div>
+        <div class="first24-note">
+          Usually after 2–3 days: the body settles, the mind slows down, the rhythm begins.<br>
+          The waves are not going anywhere.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section>
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Come prepared.<br>Travel light. Be present.</h2>
+        <p>This retreat is designed to give you measurable progress, high-level coaching, video analysis, adventure, and unforgettable surf experiences.</p>
+        <a href="index.html" class="btn-on-dark">View the 10-day plan</a>
+        <a href="mailto:hello@oceanathlete.com" class="btn-yellow">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo" style="color:var(--on-dark);">
+          <div class="nav-logo-mark">OA</div>
+          Ocean Athlete
+        </div>
+        <p>A premium surf progression retreat in Angola. 10 days of guided coaching, daily tracking, and a personal progress film to take home.</p>
+      </div>
+      <div class="footer-col">
+        <h4>The Retreat</h4>
+        <ul>
+          <li><a href="index.html">10-Day Plan</a></li>
+          <li><a href="index.html#tracking">Progress Tracking</a></li>
+          <li><a href="index.html#journey">The Journey</a></li>
+          <li><a href="index.html#cta">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Preparation</h4>
+        <ul>
+          <li><a href="#equipment">What to pack</a></li>
+          <li><a href="#mindset">Mindset guide</a></li>
+          <li><a href="#">Flights guide</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@oceanathlete.com">hello@oceanathlete.com</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Ocean Athlete. All rights reserved.</p>
+      <p>Built for surf. Designed for progression.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
