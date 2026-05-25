@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Process Maps — Angola Surf Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Notion Design Tokens ── */
+    :root {
+      --primary: #5645d4;
+      --primary-pressed: #4534b3;
+      --brand-navy: #0a1530;
+      --brand-navy-mid: #1a2a52;
+      --brand-orange: #dd5b00;
+      --brand-green: #1aae39;
+      --brand-purple: #7b3ff2;
+      --brand-purple-800: #391c57;
+      --card-tint-peach: #ffe8d4;
+      --card-tint-rose: #fde0ec;
+      --card-tint-mint: #d9f3e1;
+      --card-tint-lavender: #e6e0f5;
+      --card-tint-sky: #dcecfa;
+      --card-tint-yellow-bold: #f9e79f;
+      --canvas: #ffffff;
+      --surface: #f6f5f4;
+      --surface-soft: #fafaf9;
+      --hairline: #e5e3df;
+      --hairline-strong: #c8c4be;
+      --ink: #1a1a1a;
+      --charcoal: #37352f;
+      --slate: #5d5b54;
+      --steel: #787671;
+      --stone: #a4a097;
+      --on-dark: #ffffff;
+      --semantic-warning: #dd5b00;
+      --semantic-error: #e03131;
+      --semantic-success: #1aae39;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, system-ui, 'Segoe UI', Helvetica, sans-serif;
+      background: var(--canvas);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--canvas);
+      border-bottom: 1px solid var(--hairline);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--steel);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+
+    .nav-links a.active { color: var(--ink); }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--brand-navy);
+      color: var(--on-dark);
+      text-align: center;
+      padding: 80px 40px 64px;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── Tab bar ── */
+    .tabs-wrapper {
+      border-bottom: 1px solid var(--hairline);
+      background: var(--canvas);
+      padding: 0 40px;
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+      overflow-x: auto;
+    }
+
+    .tabs {
+      display: flex;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .tab {
+      padding: 14px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--steel);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .tab.active { color: var(--ink); border-bottom-color: var(--ink); }
+
+    /* ── Main ── */
+    .main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 64px 40px;
+    }
+
+    /* ── Student section ── */
+    .student-section {
+      margin-bottom: 96px;
+      scroll-margin-top: 132px;
+    }
+
+    .student-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .student-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .student-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .student-name {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .student-meta {
+      font-size: 14px;
+      color: var(--slate);
+      margin-top: 3px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* pill badges */
+    .badge {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .badge-purple { background: var(--primary); color: #fff; }
+    .badge-orange { background: var(--brand-orange); color: #fff; }
+
+    /* tag badges */
+    .badge-tag {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .badge-tag-sky      { background: var(--card-tint-sky);      color: #1a5a9a; }
+    .badge-tag-rose     { background: var(--card-tint-rose);     color: #a02e6d; }
+    .badge-tag-peach    { background: var(--card-tint-peach);    color: #793400; }
+    .badge-tag-mint     { background: var(--card-tint-mint);     color: #0d6b24; }
+    .badge-tag-lavender { background: var(--card-tint-lavender); color: var(--brand-purple-800); }
+    .badge-tag-yellow   { background: var(--card-tint-yellow-bold); color: #7a5300; }
+
+    /* ── Summary row ── */
+    .summary-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .summary-card {
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid var(--hairline);
+    }
+
+    .summary-card h4 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--stone);
+      margin-bottom: 14px;
+    }
+
+    .summary-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+
+    .summary-card ul li {
+      font-size: 14px;
+      color: var(--charcoal);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .summary-card ul li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: var(--semantic-success);
+      font-size: 12px;
+      top: 1px;
+    }
+
+    .summary-card ul li.block::before {
+      content: '\2715';
+      color: var(--semantic-error);
+    }
+
+    /* ── Warning banner ── */
+    .warning-banner {
+      background: #fff4ec;
+      border: 1px solid var(--brand-orange);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .warning-banner p {
+      font-size: 14px;
+      font-weight: 500;
+      color: #793400;
+      line-height: 1.5;
+    }
+
+    /* ── Process map ── */
+    .process-map-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 20px;
+    }
+
+    .process-start {
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 4px;
+    }
+
+    .process-start h4 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--stone);
+      margin-bottom: 6px;
+    }
+
+    .process-start .start-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.5;
+    }
+
+    /* vertical connector from start box down */
+    .connector-line {
+      width: 2px;
+      height: 28px;
+      background: var(--hairline);
+      margin: 0 0 0 23px;
+    }
+
+    .process-map { display: flex; flex-direction: column; }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+    }
+
+    /* left column: number + vertical line */
+    .step-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* line below number, not shown on last step */
+    .step-line {
+      flex: 1;
+      width: 2px;
+      background: var(--hairline);
+      min-height: 20px;
+    }
+
+    /* right column */
+    .step-content { padding: 0 0 24px 16px; }
+
+    .step-card {
+      border-radius: 12px;
+      padding: 20px 24px;
+      border: 1px solid var(--hairline);
+    }
+
+    .step-card.always-on {
+      border-color: var(--brand-orange);
+      background: #fff9f5;
+    }
+
+    .step-card.priority-1 { border-left-width: 3px; }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .step-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--charcoal);
+      font-style: italic;
+    }
+
+    /* goal card */
+    .process-goal {
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 4px;
+      border: 2px solid var(--primary);
+      background: var(--surface-soft);
+    }
+
+    .process-goal h4 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .process-goal .goal-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* connector line from last step into goal */
+    .connector-line-bottom {
+      width: 2px;
+      height: 24px;
+      background: var(--hairline);
+      margin: 0 0 4px 23px;
+    }
+
+    /* ── Daily 3 ── */
+    .daily-points {
+      background: var(--card-tint-yellow-bold);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 32px;
+    }
+
+    .daily-points h4 {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #7a5300;
+      margin-bottom: 14px;
+    }
+
+    .daily-points ol { list-style: none; counter-reset: pts; display: flex; flex-direction: column; gap: 10px; }
+
+    .daily-points ol li {
+      counter-increment: pts;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--charcoal);
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .daily-points ol li::before {
+      content: counter(pts);
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: #7a5300;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      top: 2px;
+    }
+
+    /* ── Divider ── */
+    hr.divider { border: none; border-top: 1px solid var(--hairline); margin-bottom: 96px; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--canvas);
+      border-top: 1px solid var(--hairline);
+      padding: 40px;
+      text-align: center;
+    }
+
+    footer p { font-size: 14px; color: var(--steel); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .main { padding: 40px 20px; }
+      .summary-row { grid-template-columns: 1fr; }
+      .student-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M2 12 C4 6, 8 4, 12 8 S18 14, 22 8"/><path d="M2 17 C4 11, 8 9, 12 13 S18 19, 22 13"/></svg>
+    Angola Clinic
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="preparation.html">Preparation</a></li>
+    <li><a href="students-process-map.html" class="active">Process Maps</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Clinic Season Opener &middot; 2026</div>
+  <h1>Student Process Maps</h1>
+  <p>Individual progression roadmaps built from Day 1 wave analysis and pre-clinic calls.</p>
+</section>
+
+<!-- TABS -->
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <a href="#jonathan" class="tab active">Jonathan</a>
+    <a href="#tali" class="tab">Tali</a>
+    <a href="#roee" class="tab">Roee</a>
+    <a href="#michal" class="tab">Michal</a>
+    <a href="#koby" class="tab">Koby</a>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- ══════════════════════════════════════════════════════════
+       JONATHAN
+  ══════════════════════════════════════════════════════════ -->
+  <section class="student-section" id="jonathan">
+
+    <div class="student-header">
+      <div class="student-title">
+        <div class="student-avatar" style="background:var(--card-tint-sky);color:#1a5a9a;">J</div>
+        <div>
+          <div class="student-name">Jonathan</div>
+          <div class="student-meta">8 years surfing &middot; Shortboard &middot; Reef break preferred</div>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-purple">in-clinic</span>
+        <span class="badge-tag badge-tag-sky">Intermediate (style)</span>
+        <span class="badge-tag badge-tag-lavender">Frontside ✓ &nbsp;Backside ✗</span>
+      </div>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-card">
+        <h4>What's Working</h4>
+        <ul>
+          <li>Gentle, soft turns — beautiful natural rhythm</li>
+          <li>Reads the wave, draws long lines</li>
+          <li>Patient — waits for the wave to come to him</li>
+          <li>Frontside flow is strong</li>
+          <li>Carver work translating to water</li>
+        </ul>
+      </div>
+      <div class="summary-card">
+        <h4>What's Blocking</h4>
+        <ul>
+          <li class="block">Looking for power down instead of behind (rotation)</li>
+          <li class="block">Wave selection — picking sections too steep</li>
+          <li class="block">Backside pop-up mental block (not physical)</li>
+          <li class="block">Reverts to "attack" mode under pressure</li>
+          <li class="block">Body tightness — self-acknowledged</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="process-map-label">Progression Roadmap</div>
+
+    <div class="process-start">
+      <h4>Starting Point</h4>
+      <div class="start-title">Solid intermediate with beautiful natural style. Ceiling is mental and tactical — not physical. Backside is the obvious growth axis.</div>
+    </div>
+    <div class="connector-line"></div>
+
+    <div class="process-map">
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-sky);color:#1a5a9a;">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card priority-1" style="border-left-color:#1a5a9a;">
+            <div class="step-title">Wave Selection &amp; Positioning</div>
+            <div class="step-desc">4m of wall about to close = walk away. He wants the section where ~1m is breaking next to him. Days 1–3: less maneuvers, more "where to sit, when to take it." Historical weakness — top priority.</div>
+            <div class="step-cue">"Take the friendly entry."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-sky);color:#1a5a9a;">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Rotate Back — Not Crouch</div>
+            <div class="step-desc">When the wall fades, the instinct is to crouch looking for power. Wrong direction. Rotate back toward the whitewater with toe-side pressure on the back foot — BEHIND him on a point break, not in front.</div>
+            <div class="step-cue">"Power isn't down. Power is the spin back."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-sky);color:#1a5a9a;">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Backside Pop-Up — Mental Release</div>
+            <div class="step-desc">Physical capacity is fully there. The work is releasing the hands, committing the jump, trusting the landing. Land drill: 10 backside pop-ups before each session — last 3 with eyes closed to practice trust. In-water: keep on easier waves until the release is automatic.</div>
+            <div class="step-cue">"Release the hands. Jump. Trust where you land."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-sky);color:#1a5a9a;">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Middle Band Flow</div>
+            <div class="step-desc">Soft turns, lots of them, between upper and lower sections. Small smooth arcs. The "boring, unimpressive" feel of this work IS the path — longer wave time breeds comfort, comfort breeds mastery.</div>
+            <div class="step-cue">"Below the top, above the bottom — boring is the goal."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-sky);color:#1a5a9a;">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Carver Between Sessions</div>
+            <div class="step-desc">Reinforces flow and backside mechanics between water sessions. Use during rest periods. Especially valuable for backside off-the-top reps. He already says it's helping — lean into it.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-sky);color:#1a5a9a;">6</div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Daily Mobility &amp; Tightness Work</div>
+            <div class="step-desc">Non-negotiable. He self-diagnosed the tightness — "I'm just an hour into something tai-chi people have done for 200 years." Honor that with patience and daily stretching before and after sessions.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="connector-line-bottom"></div>
+    <div class="process-goal">
+      <h4>Trip Goal</h4>
+      <div class="goal-title">Backside pop-up unlocked + first confident off-the-top</div>
+    </div>
+
+    <div class="daily-points">
+      <h4>Day 1 — 3 Focus Points</h4>
+      <ol>
+        <li>Power isn't down — rotate back to the foam (don't crouch)</li>
+        <li>Take the friendly entry, not the 4m wall</li>
+        <li>Small smooth arcs in the middle band</li>
+      </ol>
+    </div>
+
+  </section>
+  <hr class="divider">
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       TALI
+  ══════════════════════════════════════════════════════════ -->
+  <section class="student-section" id="tali">
+
+    <div class="student-header">
+      <div class="student-title">
+        <div class="student-avatar" style="background:var(--card-tint-rose);color:#a02e6d;">T</div>
+        <div>
+          <div class="student-name">Tali</div>
+          <div class="student-meta">6 years surfing &middot; CJ Nelson + Pyzel &middot; Flow is the north star</div>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-purple">in-clinic</span>
+        <span class="badge-tag badge-tag-rose">Intermediate (intuitive)</span>
+        <span class="badge-tag badge-tag-mint">Flow = north star</span>
+      </div>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-card">
+        <h4>What's Working</h4>
+        <ul>
+          <li>Intuition for the wave — knows where to go</li>
+          <li>Beautiful wave choice and soft pop-up</li>
+          <li>"Come back to the wave" instinct is active</li>
+          <li>Clean entry and strong wave awareness</li>
+        </ul>
+      </div>
+      <div class="summary-card">
+        <h4>What's Blocking</h4>
+        <ul>
+          <li class="block">Compression without extension — no upward release</li>
+          <li class="block">Back hand drifts behind the hip (pulls off balance)</li>
+          <li class="block">Feet not adjusted before turning back to foam</li>
+          <li class="block">Intuitive cues drop out under pressure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="process-map-label">Progression Roadmap</div>
+
+    <div class="process-start">
+      <h4>Starting Point</h4>
+      <div class="start-title">Naturally fluid intermediate. Does the right things by feel — job is to bring intention to what she already does intuitively.</div>
+    </div>
+    <div class="connector-line"></div>
+
+    <div class="process-map">
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-rose);color:#a02e6d;">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card priority-1" style="border-left-color:#a02e6d;">
+            <div class="step-title">Compress Like a Spring — Then Extend</div>
+            <div class="step-desc">Knees bend deep at the bottom, then push the chest up at the top. The energy is being compressed but never released upward. Drill: call out "down" and "up" on 5 consecutive turns so the rhythm becomes conscious.</div>
+            <div class="step-cue">"Down-and-up like a spring."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-rose);color:#a02e6d;">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Back Hand Stays at the Hip</div>
+            <div class="step-desc">Imaginary line running down the hip — back hand never crosses it. When the hand drifts behind, the body pulls backward and balance is lost. Visual that landed: "Someone pulling your hand back = falling backward."</div>
+            <div class="step-cue">"Imaginary line — back hand never crosses it."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-rose);color:#a02e6d;">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Feet Move BEFORE the Turn Back</div>
+            <div class="step-desc">Sequence: back foot adjust → front foot adjust → THEN initiate the turn to the foam. Turning without repositioning first completely kills the return flow. This is the piece that unlocks the reconnect.</div>
+            <div class="step-cue">"Don't turn until your feet are set."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-rose);color:#a02e6d;">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Build Conscious Checkpoints</div>
+            <div class="step-desc">She does the right things intuitively but loses them when the pressure is on. Brief land conversations before each session to anchor cues consciously — so they survive the heat of the wave.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-rose);color:#a02e6d;">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Cross-Step Drills on the CJ Nelson</div>
+            <div class="step-desc">She explicitly asked for this. Start dry-land on the glider, then progress to water. Frame it honestly: "destroys flow at first, then locks in beautifully." 1–2 year body-rewiring project — start the clock now.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-rose);color:#a02e6d;">6</div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Inside Section Confidence (stretch goal)</div>
+            <div class="step-desc">She defaults wider/outside when scared. Gradually move her closer to the inside on smaller sets, then larger. Her sweet spot is "a little scared and succeeding" — push when she stalls, don't let her settle outside.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="connector-line-bottom"></div>
+    <div class="process-goal">
+      <h4>Trip Goal</h4>
+      <div class="goal-title">Linked turns with intentional flow + cross-stepping foundation started</div>
+    </div>
+
+    <div class="daily-points">
+      <h4>Day 1 — 3 Focus Points</h4>
+      <ol>
+        <li>Down-and-up like a spring — compress then extend</li>
+        <li>Back hand stays at the hip, always</li>
+        <li>Move feet before turning back to the foam</li>
+      </ol>
+    </div>
+
+  </section>
+  <hr class="divider">
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       ROEE
+  ══════════════════════════════════════════════════════════ -->
+  <section class="student-section" id="roee">
+
+    <div class="student-header">
+      <div class="student-title">
+        <div class="student-avatar" style="background:var(--card-tint-peach);color:#793400;">R</div>
+        <div>
+          <div class="student-name">Roee</div>
+          <div class="student-meta">12 years surfing &middot; Theory-rich &middot; Shoulder tendinosis — active physio</div>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-purple">in-clinic</span>
+        <span class="badge badge-orange">Injury protocol</span>
+        <span class="badge-tag badge-tag-peach">Intermediate (theory-rich)</span>
+      </div>
+    </div>
+
+    <div class="warning-banner">
+      <p><strong>Injury-first:</strong> Shoulder tendinosis — long-term physio. Cap intensity at ~5/10. Day 1 session was 7/10 — already too high. Shorter sessions (1.5h max), long rests, patient wave selection (1 wave per 15–20 min is fine). Mandatory stretch after every session. Hold shortboard until late-trip, if at all. Be the brake — he will push past pain.</p>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-card">
+        <h4>What's Working</h4>
+        <ul>
+          <li>Strong speed generation</li>
+          <li>Good wave eye and selection</li>
+          <li>Compression piece is there</li>
+          <li>High theory knowledge — understands the moves</li>
+        </ul>
+      </div>
+      <div class="summary-card">
+        <h4>What's Blocking</h4>
+        <ul>
+          <li class="block">One-trick rhythm — same line every wave</li>
+          <li class="block">Energy stops at the bottom (no extension up)</li>
+          <li class="block">Feet too far forward — turning options choked</li>
+          <li class="block">Doesn't recognize when to wait vs turn back</li>
+          <li class="block">Shoulder injury is the real ceiling</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="process-map-label">Progression Roadmap</div>
+
+    <div class="process-start">
+      <h4>Starting Point</h4>
+      <div class="start-title">Strong intermediate engine locked in one rhythm. Theory very high, execution below it. Shoulder is the actual ceiling — trip success is no flare-up + 2–3 conceptual unlocks.</div>
+    </div>
+    <div class="connector-line"></div>
+
+    <div class="process-map">
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:#793400;color:#fff;font-size:11px;">0</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card always-on">
+            <div class="step-title" style="color:#793400;">Always-On: Injury Management</div>
+            <div class="step-desc">Cap intensity ~5/10. Sessions max 1.5h. Long rests between. Patient wave selection — 1 wave per 15–20 min is absolutely fine. Mandatory stretch after every session (do the first one with him so it sticks). No shortboard until end of trip, if at all.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-peach);color:#793400;">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card priority-1" style="border-left-color:#793400;">
+            <div class="step-title">Decision-Making on a Flat Wall</div>
+            <div class="step-desc">When the wall goes flat he keeps running. Wrong move. Pause. Turn back. Reconnect to the foam. Drill: commit to one deliberate turn-back per session rather than running through a dead section.</div>
+            <div class="step-cue">"When it dies, go get it back."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-peach);color:#793400;">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Walk Feet Back Before the Turn</div>
+            <div class="step-desc">Stance is too far forward — all turning options are choked. Back foot slides back, front foot adjusts, BEFORE the turn. He asked "when do I move my feet?" — answer: execution first, then refine timing. Tell him this explicitly, he'll trust the order.</div>
+            <div class="step-cue">"Tap-tap fast, then turn."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-peach);color:#793400;">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Release Energy UP Through Extension</div>
+            <div class="step-desc">After the bend: chest rises, knees extend, hands push up. Energy is currently trapped at the bottom — scraping the hand and pushing through the toes keeps it stuck. This directly serves his speed-preservation goal.</div>
+            <div class="step-cue">"Compress, then send it up."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-peach);color:#793400;">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Longboard / Glider for Cutback Practice</div>
+            <div class="step-desc">Gives him the time and forgiveness to feel the cutback rhythm properly. Also reduces shoulder load while maximising learning per session. Best tool for introducing the turn-back concept.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-peach);color:#793400;">5</div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Commit Hard on the Double-Ups</div>
+            <div class="step-desc">Best walls on offer. He's working hard on them but not committing the angle. These are highest-value waves — when one appears, lean in fully and stick to it.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="connector-line-bottom"></div>
+    <div class="process-goal">
+      <h4>Trip Goal</h4>
+      <div class="goal-title">No shoulder flare-up + first real cutback decision + speed preserved through a full wave</div>
+    </div>
+
+    <div class="daily-points">
+      <h4>Day 1 — 3 Focus Points</h4>
+      <ol>
+        <li>Cap intensity ~5/10 — mandatory stretch after every session</li>
+        <li>When the wall dies, turn back to the foam — don't keep running</li>
+        <li>Tap-tap feet back BEFORE turning</li>
+      </ol>
+    </div>
+
+  </section>
+  <hr class="divider">
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       MICHAL
+  ══════════════════════════════════════════════════════════ -->
+  <section class="student-section" id="michal">
+
+    <div class="student-header">
+      <div class="student-title">
+        <div class="student-avatar" style="background:var(--card-tint-mint);color:#0d6b24;">M</div>
+        <div>
+          <div class="student-name">Michal</div>
+          <div class="student-meta">Mid-length board &middot; High drive &middot; Pre-clinic call pending</div>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-purple">in-clinic</span>
+        <span class="badge-tag badge-tag-mint">Intermediate (driven)</span>
+        <span class="badge-tag badge-tag-yellow">Pre-clinic call pending</span>
+      </div>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-card">
+        <h4>What's Working</h4>
+        <ul>
+          <li>Compression-extension on entry — finds the energy zone</li>
+          <li>Strong drive and full engagement</li>
+          <li>Speed generated in the highest-energy section</li>
+        </ul>
+      </div>
+      <div class="summary-card">
+        <h4>What's Blocking</h4>
+        <ul>
+          <li class="block">Foot order reversed: back-then-front (years of muscle memory)</li>
+          <li class="block">Tunnel vision: fights closeouts instead of choosing an exit</li>
+          <li class="block">Tension shuts down movement options mid-wave</li>
+          <li class="block">Off-the-lip and cutback not yet attempted — waves are offering them</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="process-map-label">Progression Roadmap</div>
+
+    <div class="process-start">
+      <h4>Starting Point</h4>
+      <div class="start-title">Intermediate with strong drive — bottlenecked by one years-old motor pattern. Everything downstream unlocks once the foot order rewires.</div>
+    </div>
+    <div class="connector-line"></div>
+
+    <div class="process-map">
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-mint);color:#0d6b24;">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card priority-1" style="border-left-color:#0d6b24;border-left-width:3px;">
+            <div class="step-title">Flip the Foot Order: FRONT First, Then Back</div>
+            <div class="step-desc">The single highest-leverage change this trip. She has been moving back-then-front for years — everything downstream depends on this rewire. <strong>Non-negotiable: 10 minutes of land reps EVERY session before paddling out. No skipping. This IS the program.</strong></div>
+            <div class="step-cue">"Front first."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-mint);color:#0d6b24;">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Read the Closeout — Choose an Exit</div>
+            <div class="step-desc">Three real options when a section closes: (a) escape with speed off the back, (b) go UP for an off-the-lip, (c) cutback back to the foam. Stop fighting the section — use one of the doors.</div>
+            <div class="step-cue">"Stop fighting — choose a door."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-mint);color:#0d6b24;">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">First Off-The-Lip Attempt</div>
+            <div class="step-desc">The waves are giving her perfect setups. She is ready. Frame it as: "When you'd otherwise bail, send it up instead." This is the stretch goal but it's genuinely within reach on this trip.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-mint);color:#0d6b24;">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Relax to Access Movement</div>
+            <div class="step-desc">When tense and over-bent, no movement option is available. The mid-length has three stance positions — she can't play between them while locked up. Loose feet and soft hands must come before any attack move.</div>
+            <div class="step-cue">"Loose feet, soft hands — THEN attack."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-mint);color:#0d6b24;">5</div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Break Tunnel Vision — One Breath Out</div>
+            <div class="step-desc">She locks into whatever she's chasing and misses the situation changing around her. One breath out before committing = enough pause to see what the wave is offering and pick the right response.</div>
+            <div class="step-cue">"One breath out, then go."</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="connector-line-bottom"></div>
+    <div class="process-goal">
+      <h4>Trip Goal</h4>
+      <div class="goal-title">Foot order rewired + first off-the-lip attempted + cutback unlocked</div>
+    </div>
+
+    <div class="daily-points">
+      <h4>Day 1 — 3 Focus Points</h4>
+      <ol>
+        <li>Front foot FIRST — 10 min land drill before every session, no exceptions</li>
+        <li>Stop fighting closeouts — choose a door (escape / off-the-lip / cutback)</li>
+        <li>Loose first, then attack</li>
+      </ol>
+    </div>
+
+  </section>
+  <hr class="divider">
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       KOBY
+  ══════════════════════════════════════════════════════════ -->
+  <section class="student-section" id="koby">
+
+    <div class="student-header">
+      <div class="student-title">
+        <div class="student-avatar" style="background:var(--card-tint-lavender);color:var(--brand-purple-800);">K</div>
+        <div>
+          <div class="student-name">Koby</div>
+          <div class="student-meta">4 years surfing &middot; Beginner-intermediate &middot; Needs external activation</div>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge badge-purple">in-clinic</span>
+        <span class="badge-tag badge-tag-lavender">Beginner–Intermediate</span>
+        <span class="badge-tag badge-tag-peach">Fear loop active</span>
+      </div>
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-card">
+        <h4>What's Working</h4>
+        <ul>
+          <li>Patient and attentive to the whitewater</li>
+          <li>Doesn't panic — keeps trying to reconnect</li>
+          <li>Gets concepts verbally</li>
+          <li>High wipeout tolerance (key insight — fear is a habit, not a memory)</li>
+        </ul>
+      </div>
+      <div class="summary-card">
+        <h4>What's Blocking</h4>
+        <ul>
+          <li class="block">Pop-up: front knee gets stuck on the way up</li>
+          <li class="block">Drops too low on wall — bleeds all speed</li>
+          <li class="block">Pressure without extension (energy trapped down)</li>
+          <li class="block">Entry angle pointed at shore instead of along the wall</li>
+          <li class="block">Fear loop — undefined origin, habit not injury memory</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="process-map-label">Progression Roadmap</div>
+
+    <div class="process-start">
+      <h4>Starting Point</h4>
+      <div class="start-title">Beginner-intermediate on a real physical block AND a fear loop. He has explicitly asked to be pushed — accept the invitation. Once both are addressed, he has fast upside.</div>
+    </div>
+    <div class="connector-line"></div>
+
+    <div class="process-map">
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-lavender);color:var(--brand-purple-800);">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card priority-1" style="border-left-color:var(--brand-purple-800);">
+            <div class="step-title">Pop-Up Workaround — Survive the Section, Then Ride</div>
+            <div class="step-desc">Known front-knee limitation — work on it long-term, but don't let it block waves now. Workaround: pull harder, twist head sideways, push more with hand pressure. On a critical section: half-belly through it, then stabilize. This is a PRO move — it multiplies his wave count immediately.</div>
+            <div class="step-cue">"Survive the section, then ride."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-lavender);color:var(--brand-purple-800);">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Address the Fear Loop Directly</div>
+            <div class="step-desc">The meta-blocker behind everything. Key insight: he's NOT afraid of wipeouts — he's been through plenty and is fine. The fear is a habit, not a real injury memory. Land conversation first: "If you're not afraid of falling — what ARE you actually afraid of?" Let him sit with it. Then be his external voice in the water.</div>
+            <div class="step-cue">"Go." &nbsp;"Take it." &nbsp;"Don't hesitate."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-lavender);color:var(--brand-purple-800);">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Stay in the Upper Portion of the Wall</div>
+            <div class="step-desc">He drops to the bottom and loses all speed — every cycle. Stay middle/top. Never dig to the bottom. Staying high gives him the height needed to drive back down for a cutback — the move he wants most.</div>
+            <div class="step-cue">"Don't dig to the bottom — climb from the middle."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-lavender);color:var(--brand-purple-800);">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Soft Entry Angle — Along the Wall, Not at the Beach</div>
+            <div class="step-desc">Entry angle currently points directly at shore, killing all options to climb back up. Approach the wall at a gentle angle running along it, then climb from there. This is the posture that makes a cutback geometrically possible.</div>
+            <div class="step-cue">"Go ALONG the wall, not AT the beach."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-lavender);color:var(--brand-purple-800);">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Compress Then Extend — Not Just Press</div>
+            <div class="step-desc">Knee bend → body rises (chest up, hands lift). Currently pressing through toes only — energy trapped down, no speed generated. He thinks "go lower" is the answer — it isn't. Timing and extension is.</div>
+            <div class="step-cue">"Tall back, busy knees."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-lavender);color:var(--brand-purple-800);">6</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Soften the Turns</div>
+            <div class="step-desc">Less hard turning, softer pressure changes — so he stays connected to the wall instead of bouncing off it. Smooth gradual arcs rather than abrupt pivots keep the energy flowing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="process-step">
+        <div class="step-left">
+          <div class="step-number" style="background:var(--card-tint-lavender);color:var(--brand-purple-800);">7</div>
+        </div>
+        <div class="step-content">
+          <div class="step-card">
+            <div class="step-title">Weight Distribution — Shoulders Open, Knees Do the Work</div>
+            <div class="step-desc">He believes the answer is "go lower." It isn't. Open shoulders + correct timing. Back stays straight, knees move. Correct every time it appears — the misconception is deeply ingrained.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="connector-line-bottom"></div>
+    <div class="process-goal">
+      <h4>Trip Goal</h4>
+      <div class="goal-title">8 enjoyable waves per session + first real cutback + fear loop named and worked</div>
+    </div>
+
+    <div class="daily-points">
+      <h4>Day 1 — 3 Focus Points</h4>
+      <ol>
+        <li>Survive the section any way possible — then ride</li>
+        <li>Stay upper wall, don't dig to the bottom</li>
+        <li>Approach the wall at an angle, not straight at the beach</li>
+      </ol>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>Ocean Athlete &mdash; Angola Surf Clinic &middot; Season Opener 2026</p>
+</footer>
+
+<script>
+  // Sync active tab on anchor navigation
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+
+  // Highlight tab on scroll
+  const sections = document.querySelectorAll('.student-section');
+  const tabs = document.querySelectorAll('.tab');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tabs.forEach(t => t.classList.remove('active'));
+        const id = entry.target.id;
+        const match = document.querySelector(`.tab[href="#${id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
